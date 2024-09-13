@@ -1,6 +1,7 @@
 package com.gnr.proyectod2.splashScreen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -47,13 +48,13 @@ class SplashScreen : Screen {
         ) {
             Column(
                 modifier = Modifier.fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
             ) {
-
+                CircularProgressIndicator(color = Color.Black)
+                Spacer(modifier = Modifier.height(16.dp))
+                Text("Cargando...", fontSize = 15.sp)
             }
-            CircularProgressIndicator(color = Color.Black)
-            Spacer(modifier = Modifier.height(16.dp))
-            Text("Cargando...", fontSize = 15.sp)
         }
     }
 }
