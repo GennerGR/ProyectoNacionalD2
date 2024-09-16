@@ -55,7 +55,7 @@ class MainScreen : Screen {
                 },
                 floatingActionButton = {
                     FloatingActionButton(
-                        onClick = { /* Acción que desees, actualmente vacía */ },
+                        onClick = { /* Agregar acción */ },
                         modifier = Modifier.padding(16.dp)
                     ) {
                         Icon(Icons.Default.Add, contentDescription = "Agregar")
