@@ -29,15 +29,20 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
 import cafe.adriel.voyager.navigator.tab.TabNavigator
+import com.gnr.proyectod2.addRecipes.AddRecipes
 import com.gnr.proyectod2.main.uiTabs.RecetasTab
 import com.gnr.proyectod2.main.uiTabs.SecondTab
 
 class MainScreen : Screen {
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
+
         TabNavigator(RecetasTab) {
             Scaffold(
                 topBar = {
@@ -55,7 +60,9 @@ class MainScreen : Screen {
                 },
                 floatingActionButton = {
                     FloatingActionButton(
-                        onClick = { /* Agregar acción */ },
+                        onClick = {
+                            navigator.push(AddRecipes())
+                        },
                         modifier = Modifier.padding(16.dp)
                     ) {
                         Icon(Icons.Default.Add, contentDescription = "Agregar")
