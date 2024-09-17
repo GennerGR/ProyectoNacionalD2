@@ -2,6 +2,7 @@ package com.gnr.proyectod2.addRecipes
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.Button
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.OutlinedTextField
@@ -104,15 +106,24 @@ class AddRecipes : Screen {
                 label = { Text("Instrucciones") },
                 modifier = Modifier.fillMaxWidth()
             )
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(20.dp))
             Text("Categoría", fontSize = 22.sp)
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
             /* Alternar favorito */
             Row(modifier = Modifier.fillMaxWidth()) {
                 Text("Marcar como favorito", fontSize = 15.sp, color = Color.Black)
                 Spacer(modifier = Modifier.width(10.dp))
                 favoriteToggle()
+            }
+            Spacer(modifier = Modifier.height(20.dp))
+            /*Botones para agregar imagen*/
+            addImage()
+            Spacer(modifier = Modifier.height(30.dp))
+            Button(onClick = {
+
+            }) {
+                Text("GUARDAR", fontSize = 16.sp, color = Color.White)
             }
         }
     }
@@ -130,6 +141,27 @@ class AddRecipes : Screen {
                 isFavorite = !isFavorite
             }
         )
+    }
+
+    @Composable
+    fun addImage () {
+        Column (horizontalAlignment = Alignment.CenterHorizontally) {
+            Row (modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                Button(onClick = {
+
+                }){
+                    Text("CAMARA")
+                }
+                Spacer(modifier = Modifier.width(16.dp))
+                Button(onClick = {
+
+                }) {
+                    Text("GALERIA")
+                }
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+            Text("No se ha tomado ninguna foto", fontSize = 15.sp, color = Color.Black)
+        }
     }
 
     @Preview
