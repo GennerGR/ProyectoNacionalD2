@@ -22,7 +22,8 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 
 @Composable
-fun BarraEstado (){
+fun BarraEstado() {
+
     val navigator = LocalNavigator.currentOrThrow
 
     Row(
@@ -31,6 +32,7 @@ fun BarraEstado (){
     ) {
         Spacer(modifier = Modifier.width(5.dp))
         IconButton(onClick = {
+            /*Regresar a la pantalla anterior*/
             navigator.pop()
         }) {
             Icon(Icons.Default.Refresh, contentDescription = "")

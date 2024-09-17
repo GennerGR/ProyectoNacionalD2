@@ -2,7 +2,6 @@ package com.gnr.proyectod2.addRecipes
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,7 +24,7 @@ class AddRecipes : Screen {
 
 //    @Composable
 //    fun BarraEstado() {
-// 
+//
 //    }
 
 //    @Composable

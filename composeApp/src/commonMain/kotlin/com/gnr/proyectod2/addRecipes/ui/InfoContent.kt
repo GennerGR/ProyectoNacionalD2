@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-fun InfoContent (){
+fun InfoContent() {
 
     Column(
         modifier = Modifier.fillMaxSize().padding(8.dp),
@@ -66,7 +66,7 @@ fun InfoContent (){
 }
 
 @Composable
-fun outlinedTexFields () {
+fun outlinedTexFields() {
 
     var name: String by remember { mutableStateOf("") }
     var ingredients: String by remember { mutableStateOf(" ") }
@@ -97,7 +97,7 @@ fun outlinedTexFields () {
 }
 
 @Composable
-fun categoríaReceta () {
+fun categoríaReceta() {
 
 }
 
