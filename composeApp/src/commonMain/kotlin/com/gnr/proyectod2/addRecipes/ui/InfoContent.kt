@@ -12,9 +12,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Button
+import androidx.compose.material.DropdownMenuItem
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.ExposedDropdownMenuBox
+import androidx.compose.material.ExposedDropdownMenuDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
+import androidx.compose.material.TextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.FavoriteBorder
@@ -71,6 +76,7 @@ fun outlinedTexFields() {
     var name: String by remember { mutableStateOf("") }
     var ingredients: String by remember { mutableStateOf(" ") }
     var instructions: String by remember { mutableStateOf(" ") }
+    var preparationTime: String by remember {mutableStateOf("")}
 
     Spacer(modifier = Modifier.height(8.dp))
     OutlinedTextField(
@@ -93,12 +99,58 @@ fun outlinedTexFields() {
         label = { Text("Instrucciones") },
         modifier = Modifier.fillMaxWidth()
     )
+    Spacer(modifier = Modifier.height(8.dp))
+    OutlinedTextField(
+        value = preparationTime,
+        onValueChange = { instructions = it },
+        label = { Text ("Tiempo de preparación")},
+        modifier = Modifier.fillMaxWidth()
+    )
     Spacer(modifier = Modifier.height(20.dp))
 }
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun categoríaReceta() {
 
+    var expanded by remember { mutableStateOf(false) }
+    var selectedOption by remember { mutableStateOf("")}
+
+    ExposedDropdownMenuBox(
+        expanded = expanded,
+        onExpandedChange = { expanded = !expanded}
+    ) {
+        TextField(
+            value = selectedOption,
+            onValueChange = {},
+            label = { Text("Seleccionar categoría:") },
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded)},
+            readOnly = true,
+            modifier = Modifier.fillMaxWidth()
+        )
+        ExposedDropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false}
+        ) {
+            listOf(
+                "Desayuno",
+                "Almuerzo",
+                "Cena",
+                "Postre",
+                "Snack",
+                "Otro"
+            ).forEach { option ->
+                DropdownMenuItem(
+                    onClick = {
+                        selectedOption = option
+                        expanded = false
+                    }
+                ) {
+                    Text(text = option)
+                }
+            }
+        }
+    }
 }
 
 @Composable
