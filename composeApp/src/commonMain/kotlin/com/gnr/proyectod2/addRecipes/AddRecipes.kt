@@ -144,12 +144,12 @@ class AddRecipes : Screen {
     }
 
     @Composable
-    fun addImage () {
-        Column (horizontalAlignment = Alignment.CenterHorizontally) {
-            Row (modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+    fun addImage() {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
                 Button(onClick = {
 
-                }){
+                }) {
                     Text("CAMARA")
                 }
                 Spacer(modifier = Modifier.width(16.dp))
