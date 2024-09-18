@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.googleServices)
 }
 
 kotlin {
@@ -31,6 +32,8 @@ kotlin {
     sourceSets {
         
         androidMain.dependencies {
+            implementation(libs.firebase.bom)
+            implementation(libs.firebase.crashlytics)
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.okhttp)
