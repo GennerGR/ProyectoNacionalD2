@@ -46,3 +46,8 @@ fun BarraEstado() {
         )
     }
 }
+
+
+
+
+
